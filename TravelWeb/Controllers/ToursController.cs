@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using TravelWeb.Models;
 
 namespace TravelWeb.Controllers
@@ -122,6 +123,51 @@ namespace TravelWeb.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public JsonResult LoadProvince()
+        {
+            var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
+
+            var xElements = xmlDoc.Element("Root").Elements("Item").Where(x => x.Attribute("type").Value == "province");
+            var list = new List<Tinh>();
+            Tinh province = null;
+            foreach (var item in xElements)
+            {
+                province = new Tinh();
+                province.ID = int.Parse(item.Attribute("id").Value);
+                province.Name = item.Attribute("value").Value;
+                list.Add(province);
+
+            }
+            return Json(new
+            {
+                data = list,
+                status = true
+            });
+        }
+        public JsonResult LoadDistrict(int provinceID)
+        {
+            var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
+
+            var xElement = xmlDoc.Element("Root").Elements("Item")
+                .Single(x => x.Attribute("type").Value == "province" && int.Parse(x.Attribute("id").Value) == provinceID);
+
+            var list = new List<Huyen>();
+            Huyen district = null;
+            foreach (var item in xElement.Elements("Item").Where(x => x.Attribute("type").Value == "district"))
+            {
+                district = new Huyen();
+                district.ID = int.Parse(item.Attribute("id").Value);
+                district.Name = item.Attribute("value").Value;
+                district.ProvinceID = int.Parse(xElement.Attribute("id").Value);
+                list.Add(district);
+
+            }
+            return Json(new
+            {
+                data = list,
+                status = true
+            });
         }
     }
 }

@@ -226,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\client\data\Provinces_Data.xml" />
+    <Content Include="assets\client\js\controller\Edit.js" />
     <Content Include="assets\client\js\controller\userController.js" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\bootstrap.css" />
