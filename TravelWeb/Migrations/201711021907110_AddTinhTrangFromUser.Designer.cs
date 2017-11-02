@@ -7,13 +7,13 @@ namespace TravelWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialDb : IMigrationMetadata
+    public sealed partial class AddTinhTrangFromUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddTinhTrangFromUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711021245573_InitialDb"; }
+            get { return "201711021907110_AddTinhTrangFromUser"; }
         }
         
         string IMigrationMetadata.Source

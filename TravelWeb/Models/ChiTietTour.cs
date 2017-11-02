@@ -21,6 +21,7 @@ namespace TravelWeb.Models
         [Column(TypeName = "ntext")]
         public string MoTa { get; set; }
 
+        public bool TinhTrang { get; set; }
         public virtual ApplicationUser AspNetUser { get; set; }
 
         public virtual Tour Tour { get; set; }

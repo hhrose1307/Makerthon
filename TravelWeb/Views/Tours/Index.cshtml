@@ -3,12 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
+    
+<br/>
+<h3>Tour của bạn</h3>
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -28,9 +27,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HuyenToi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaDiemToi)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SoNguoi)
@@ -68,9 +64,6 @@
             @Html.DisplayFor(modelItem => item.HuyenToi)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DiaDiemToi)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.SoNguoi)
         </td>
         <td>
@@ -83,9 +76,7 @@
             @Html.DisplayFor(modelItem => item.GioiTinh)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTour }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaTour }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTour })
+            @Html.ActionLink("Xem chi tiết", "ChiTiet", new { id=item.MaTour },new {@class="btn btn-primary" }) 
         </td>
     </tr>
 }

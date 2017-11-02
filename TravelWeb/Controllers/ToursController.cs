@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using TravelWeb.Models;
+using Microsoft.AspNet.Identity;
+using TravelWeb.ViewModel;
 
 namespace TravelWeb.Controllers
 {
@@ -18,7 +20,15 @@ namespace TravelWeb.Controllers
         // GET: Tours
         public ActionResult Index()
         {
-            return View(db.Tours.ToList());
+            var user = User.Identity.GetUserId();
+            if(user==null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            var ct = db.ChiTietTours.FirstOrDefault(n => n.MaKH == user);
+            var tour = db.Tours.Where(n => n.MaTour == ct.MaTour&&n.ThoiGianDi>=DateTime.Now).ToList();
+            return View(tour);
         }
 
         // GET: Tours/Details/5
@@ -60,12 +70,70 @@ namespace TravelWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var tours = Session["tour"] as Tour;
-                tour.TinhToi = tours.TinhToi;
-                tour.HuyenToi = tours.HuyenToi;          
-                db.Tours.Add(tour);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var tour1 = Session["tour"] as Tour;
+                //Tìm tour
+                var Tour = db.Tours.ToList();
+                int i = 0;
+                foreach (var item in Tour)
+                {
+                    i = 0;
+                    if (item.PhuongTien == tour.PhuongTien &&
+                        item.TinhToi == tour1.TinhToi &&
+                        item.TinhDi == tour.TinhDi &&
+                        item.HuyenToi == tour1.HuyenToi &&
+                        item.SoNguoi == tour.SoNguoi &&
+                        (item.SoNguoi - item.SoNguoiDaCo) >= tour.SoNguoiDaCo
+                        )
+                    {
+                        i++;    
+                    }
+                    if(i==1)
+                    {
+                        //add chi tiết
+                        var user = User.Identity.GetUserId();
+                        if(user==null)
+                        {
+                            return RedirectToAction("Login", "Account");
+                        }
+                        int ma = item.MaTour;
+                        ChiTietTour ct = new ChiTietTour();
+                        ct.MaTour = ma;
+                        ct.MaKH = user;
+                        db.ChiTietTours.Add(ct);
+                        db.SaveChanges();
+
+                        var tour2 = db.Tours.SingleOrDefault(n => n.MaTour == ma);
+                        if(tour2==null)
+                        {
+                            Response.StatusCode = 404;
+                            return null;
+                        }
+                        tour2.SoNguoiDaCo += tour.SoNguoiDaCo;
+                        db.SaveChanges();
+                        return Redirect("Index");
+                    }
+                    
+                }
+                if (i == 0)
+                {
+                    //Add database
+                    var tours = Session["tour"] as Tour;
+                    tour.TinhToi = tours.TinhToi;
+                    tour.HuyenToi = tours.HuyenToi;
+                    db.Tours.Add(tour);
+                    db.SaveChanges();
+                    
+                    //add chi tiết
+                    var user = User.Identity.GetUserId();
+                    int ma = tour.MaTour;
+                    ChiTietTour ct = new ChiTietTour();
+                    ct.MaTour = ma;
+                    ct.MaKH = user;
+                    db.ChiTietTours.Add(ct);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
             }
 
             return View(tour);
@@ -180,6 +248,26 @@ namespace TravelWeb.Controllers
                 data = list,
                 status = true
             });
+        }
+
+        public ActionResult ChiTiet(int id=0)
+        {
+            var model = (from a in db.ChiTietTours
+                         join b in db.Users
+                         on a.MaKH equals b.Id
+                         where a.MaTour == id
+                         select new ChiTietViewModel
+                         {
+                             TenKh = b.HoTen,
+                             ngaysinh = b.NgaySinh,
+                             gioitinh=b.GioiTinh,
+                             linkfb=b.FaceBook,
+                             Mota=a.MoTa,
+                             TinhTrang=a.TinhTrang
+                         }
+                         );
+            return View(model.ToList());
+
         }
     }
 }

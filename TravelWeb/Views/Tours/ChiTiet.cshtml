@@ -1,0 +1,81 @@
+﻿
+@using Microsoft.AspNet.Identity;
+@model List<TravelWeb.ViewModel.ChiTietViewModel>
+
+@{
+    ViewBag.Title = "Chi tiết Tour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<h3>ChiTiet</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <span>Tên bạn đồng hành</span>
+        </th>
+        <th>
+            <span>Ngày sinh</span>
+        </th>
+        <th>
+            <span>Giới tính</span>
+        </th>
+        <th>
+            <span>Mô tả</span>
+        </th>
+        <th>
+            <span>Link FaceBook</span>
+        </th>
+        <th>
+            <span>Tình Trạng</span>
+        </th>
+
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <span>@item.TenKh</span>
+        </td>
+        <td>
+            <span>@item.ngaysinh</span>
+            
+        </td>
+        <td>
+            @if (item.gioitinh == true)
+            {
+                <span>Nam</span>
+            }
+            else
+            {
+                <span>Nữ</span>
+            }
+                
+            
+        </td>
+        <td>
+            <span>@item.Mota</span>
+        </td>
+        <td>
+            <span>@item.linkfb</span>
+        </td>
+        <td>
+            @if(item.TinhTrang==true)
+            {
+                <span>Đã đồng ý</span>
+            }
+            else
+            {
+                <span>Đang chờ</span>
+            }
+        </td>
+        @*<td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        </td>*@
+    </tr>
+}
+
+</table>

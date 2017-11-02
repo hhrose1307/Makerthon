@@ -206,9 +206,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
-    <Compile Include="Migrations\201711021245573_InitialDb.cs" />
-    <Compile Include="Migrations\201711021245573_InitialDb.Designer.cs">
-      <DependentUpon>201711021245573_InitialDb.cs</DependentUpon>
+    <Compile Include="Migrations\201711021851349_cho.cs" />
+    <Compile Include="Migrations\201711021851349_cho.Designer.cs">
+      <DependentUpon>201711021851349_cho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711021907110_AddTinhTrangFromUser.cs" />
+    <Compile Include="Migrations\201711021907110_AddTinhTrangFromUser.Designer.cs">
+      <DependentUpon>201711021907110_AddTinhTrangFromUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -223,6 +227,7 @@
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\ChiTietViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\client\data\Provinces_Data.xml" />
@@ -505,6 +510,7 @@
     <Content Include="Views\Tours\Edit.cshtml" />
     <Content Include="Views\Tours\Index.cshtml" />
     <Content Include="Views\Home\_Tour.cshtml" />
+    <Content Include="Views\Tours\ChiTiet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -525,8 +531,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711021245573_InitialDb.resx">
-      <DependentUpon>201711021245573_InitialDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711021851349_cho.resx">
+      <DependentUpon>201711021851349_cho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021907110_AddTinhTrangFromUser.resx">
+      <DependentUpon>201711021907110_AddTinhTrangFromUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
