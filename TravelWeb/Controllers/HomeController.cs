@@ -29,6 +29,11 @@ namespace TravelWeb.Controllers
 
             return View();
         }
+
+        public PartialViewResult _Tour()
+        {
+            return PartialView();
+        }
         public JsonResult LoadProvince()
         {
             var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));

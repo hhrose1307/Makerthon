@@ -1,0 +1,19 @@
+﻿@model TravelWeb.Models.Tour
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.TinhToi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TinhToi", new SelectList(new string[] { }), new { @class = "form-control", @id = "ddlProvince" })
+                @Html.ValidationMessageFor(model => model.TinhToi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HuyenToi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("HuyenToi", new SelectList(new string[] { }), new { @class = "form-control", @id = "ddlDistrict" })
+                @Html.ValidationMessageFor(model => model.HuyenToi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    }
