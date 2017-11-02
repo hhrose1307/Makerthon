@@ -213,6 +213,14 @@
     <Compile Include="Migrations\201711020830153_initupdateuser.Designer.cs">
       <DependentUpon>201711020830153_initupdateuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711021124482_Change.cs" />
+    <Compile Include="Migrations\201711021124482_Change.Designer.cs">
+      <DependentUpon>201711021124482_Change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711021141099_UpdateTourTable.cs" />
+    <Compile Include="Migrations\201711021141099_UpdateTourTable.Designer.cs">
+      <DependentUpon>201711021141099_UpdateTourTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChiTietTour.cs" />
@@ -226,6 +234,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\client\data\Provinces_Data.xml" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\custom.css" />
@@ -522,6 +531,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711020830153_initupdateuser.resx">
       <DependentUpon>201711020830153_initupdateuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021124482_Change.resx">
+      <DependentUpon>201711021124482_Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021141099_UpdateTourTable.resx">
+      <DependentUpon>201711021141099_UpdateTourTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

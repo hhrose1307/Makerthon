@@ -22,8 +22,12 @@ namespace TravelWeb.Models
 
         public int? NgayDiDuKien { get; set; }
 
-        [StringLength(150)]
-        public string DiaDiemDi { get; set; }
+        public string TinhDi { get; set; }
+
+        public string HuyenDi { get; set; }
+        public string TinhToi { get; set; }
+
+        public string HuyenToi { get; set; }
 
         [StringLength(150)]
         public string DiaDiemToi { get; set; }
