@@ -1,6 +1,6 @@
 ﻿@model TravelWeb.Models.Tour
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("AddTour","Tours",FormMethod.Post))
     {
         <div class="col-md-10" style="margin-top:25px;">
             <div class="form-group ">

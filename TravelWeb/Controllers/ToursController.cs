@@ -36,9 +36,18 @@ namespace TravelWeb.Controllers
             return View(tour);
         }
 
+        [HttpPost]
+        public ActionResult AddTour(Tour tour)
+        {
+            Session["tour"] = tour;
+            return RedirectToAction("Create", "Tours");
+        }
         // GET: Tours/Create
         public ActionResult Create()
         {
+            var tour = Session["tour"] as Tour;
+            ViewBag.Tinh = tour.TinhToi;
+            ViewBag.Huyen = tour.HuyenToi;
             return View();
         }
 
@@ -51,9 +60,12 @@ namespace TravelWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var tours = Session["tour"] as Tour;
+                tour.TinhToi = tours.TinhToi;
+                tour.HuyenToi = tours.HuyenToi;          
                 db.Tours.Add(tour);
                 db.SaveChanges();
-                return RedirectToAction("Edit",new {id=tour.MaTour });
+                return RedirectToAction("Index");
             }
 
             return View(tour);
