@@ -10,7 +10,7 @@
         $(function () {
             var chatHub = $.connection.chatHub;
             chatHub.client.sendMessageToPage = function (name, message) {
-                $('#discussion').append("<li><strong>" + name + "</strong>" + message + "</li>")
+                $('#discussion').append("<li><strong> <label class='text-danger'>" + name + "</label></strong>" + message + "</li>")
             };
             $('#displayName').val(prompt("Enter your name: ", "SignalR Chat"));
             $('#message').focus();
