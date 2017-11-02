@@ -201,6 +201,7 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +209,10 @@
     <Compile Include="Migrations\201711021150515_updatedatabase.cs" />
     <Compile Include="Migrations\201711021150515_updatedatabase.Designer.cs">
       <DependentUpon>201711021150515_updatedatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711021207271_updatetourtable.cs" />
+    <Compile Include="Migrations\201711021207271_updatetourtable.Designer.cs">
+      <DependentUpon>201711021207271_updatetourtable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -494,6 +499,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Tours\Create.cshtml" />
+    <Content Include="Views\Tours\Delete.cshtml" />
+    <Content Include="Views\Tours\Details.cshtml" />
+    <Content Include="Views\Tours\Edit.cshtml" />
+    <Content Include="Views\Tours\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -516,6 +526,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711021150515_updatedatabase.resx">
       <DependentUpon>201711021150515_updatedatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021207271_updatetourtable.resx">
+      <DependentUpon>201711021207271_updatetourtable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

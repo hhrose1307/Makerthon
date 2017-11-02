@@ -1,0 +1,106 @@
+﻿@model TravelWeb.Models.Tour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianDi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDiDuKien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDiDuKien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhDi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhDi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuyenDi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuyenDi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhToi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhToi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HuyenToi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HuyenToi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaDiemToi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaDiemToi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoNguoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoNguoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoNguoiDaCo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoNguoiDaCo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhuongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhuongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTour }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

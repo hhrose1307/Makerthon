@@ -34,8 +34,10 @@ namespace TravelWeb.Models
 
         public int? SoNguoi { get; set; }
 
-        public int? PhuongTien { get; set; }
-
+        public int? SoNguoiDaCo { get; set; }
+        
+        public string PhuongTien { get; set; }
+        public string GioiTinh { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTour> ChiTietTours { get; set; }
     }
