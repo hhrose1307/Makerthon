@@ -23,6 +23,57 @@ namespace TravelWeb.Migrations
                 .Index(t => t.AspNetUser_Id);
             
             CreateTable(
+                "dbo.AspNetUsers",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        HoTen = c.String(),
+                        SoThich = c.String(),
+                        BietDanh = c.String(),
+                        Anh = c.String(),
+                        FaceBook = c.String(),
+                        Zalo = c.String(),
+                        Email = c.String(maxLength: 256),
+                        EmailConfirmed = c.Boolean(nullable: false),
+                        PasswordHash = c.String(),
+                        SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
+                        PhoneNumberConfirmed = c.Boolean(nullable: false),
+                        TwoFactorEnabled = c.Boolean(nullable: false),
+                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEnabled = c.Boolean(nullable: false),
+                        AccessFailedCount = c.Int(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+            
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                    {
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.NhaNghi",
                 c => new
                     {
@@ -42,6 +93,19 @@ namespace TravelWeb.Migrations
                 .PrimaryKey(t => t.Ma)
                 .ForeignKey("dbo.AspNetUsers", t => t.AspNetUser_Id)
                 .Index(t => t.AspNetUser_Id);
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
             
             CreateTable(
                 "dbo.Tour",
@@ -83,34 +147,47 @@ namespace TravelWeb.Migrations
                     })
                 .PrimaryKey(t => t.MaTinh);
             
-            AddColumn("dbo.AspNetUsers", "HoTen", c => c.String());
-            AddColumn("dbo.AspNetUsers", "SoThich", c => c.String());
-            AddColumn("dbo.AspNetUsers", "BietDanh", c => c.String());
-            AddColumn("dbo.AspNetUsers", "Anh", c => c.String());
-            AddColumn("dbo.AspNetUsers", "FaceBook", c => c.String());
-            AddColumn("dbo.AspNetUsers", "Zalo", c => c.String());
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.DiaDanh", "MaTinh", "dbo.DiaDiemToi");
             DropForeignKey("dbo.ChiTietTour", "MaTour", "dbo.Tour");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.NhaNghi", "AspNetUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.ChiTietTour", "AspNetUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.DiaDanh", new[] { "MaTinh" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.NhaNghi", new[] { "AspNetUser_Id" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.ChiTietTour", new[] { "AspNetUser_Id" });
             DropIndex("dbo.ChiTietTour", new[] { "MaTour" });
-            DropColumn("dbo.AspNetUsers", "Zalo");
-            DropColumn("dbo.AspNetUsers", "FaceBook");
-            DropColumn("dbo.AspNetUsers", "Anh");
-            DropColumn("dbo.AspNetUsers", "BietDanh");
-            DropColumn("dbo.AspNetUsers", "SoThich");
-            DropColumn("dbo.AspNetUsers", "HoTen");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.DiaDiemToi");
             DropTable("dbo.DiaDanh");
             DropTable("dbo.Tour");
+            DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.NhaNghi");
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
             DropTable("dbo.ChiTietTour");
         }
     }
