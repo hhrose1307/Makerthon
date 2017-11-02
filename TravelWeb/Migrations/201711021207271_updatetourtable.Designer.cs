@@ -7,13 +7,13 @@ namespace TravelWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdateTourTable : IMigrationMetadata
+    public sealed partial class updatetourtable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateTourTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatetourtable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711021141099_UpdateTourTable"; }
+            get { return "201711021207271_updatetourtable"; }
         }
         
         string IMigrationMetadata.Source
