@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201711020815352_InitDb.Designer.cs">
       <DependentUpon>201711020815352_InitDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711020830153_initupdateuser.cs" />
+    <Compile Include="Migrations\201711020830153_initupdateuser.Designer.cs">
+      <DependentUpon>201711020830153_initupdateuser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ChiTietTour.cs" />
@@ -291,6 +295,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711020815352_InitDb.resx">
       <DependentUpon>201711020815352_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711020830153_initupdateuser.resx">
+      <DependentUpon>201711020830153_initupdateuser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

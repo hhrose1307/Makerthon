@@ -4,12 +4,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System;
 
 namespace TravelWeb.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+
+        public DateTime NgaySinh { get; set; }
         public string HoTen { get; set; }
 
         public string SoThich { get; set; }
@@ -21,6 +24,8 @@ namespace TravelWeb.Models
         public string FaceBook { get; set; }
 
         public string Zalo { get; set; }
+
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTour> ChiTietTours { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TravelWeb.Models
@@ -79,6 +80,33 @@ namespace TravelWeb.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name ="Họ tên")]
+        public string HoTen { get; set; }
+
+        [Display(Name ="Sở thích")]
+
+        public string SoThich { get; set; }
+
+        [Display(Name ="Biệt danh")]
+
+        public string BietDanh { get; set; }
+
+        [Display(Name ="Ảnh đại diện")]
+
+        public string Anh { get; set; }
+
+        [Display(Name ="Địa chỉ Facebook")]
+        public string FaceBook { get; set; }
+
+
+        [Display(Name ="Đại chỉ Zalo")]
+        public string Zalo { get; set; }
+
+        [Display(Name ="Ngày sinh")]
+
+        public DateTime NgaySinh { get; set; }
+
     }
 
     public class ResetPasswordViewModel

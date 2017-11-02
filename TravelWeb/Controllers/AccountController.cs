@@ -151,7 +151,10 @@ namespace TravelWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, HoTen = model.HoTen, Anh = model.Anh, BietDanh = model.BietDanh,
+
+                    NgaySinh = model.NgaySinh
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
