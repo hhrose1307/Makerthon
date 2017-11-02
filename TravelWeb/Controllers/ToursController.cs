@@ -46,13 +46,13 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaTour,ThoiGianDi,NgayDiDuKien,TinhDi,HuyenDi,TinhToi,HuyenToi,DiaDiemToi,SoNguoi,SoNguoiDaCo,PhuongTien,GioiTinh")] Tour tour)
+        public ActionResult Create(Tour tour)
         {
             if (ModelState.IsValid)
             {
                 db.Tours.Add(tour);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit",new {id=tour.MaTour });
             }
 
             return View(tour);

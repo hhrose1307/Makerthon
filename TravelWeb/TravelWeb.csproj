@@ -206,13 +206,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
-    <Compile Include="Migrations\201711021150515_updatedatabase.cs" />
-    <Compile Include="Migrations\201711021150515_updatedatabase.Designer.cs">
-      <DependentUpon>201711021150515_updatedatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711021207271_updatetourtable.cs" />
-    <Compile Include="Migrations\201711021207271_updatetourtable.Designer.cs">
-      <DependentUpon>201711021207271_updatetourtable.cs</DependentUpon>
+    <Compile Include="Migrations\201711021245573_InitialDb.cs" />
+    <Compile Include="Migrations\201711021245573_InitialDb.Designer.cs">
+      <DependentUpon>201711021245573_InitialDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -527,11 +523,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711021150515_updatedatabase.resx">
-      <DependentUpon>201711021150515_updatedatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711021207271_updatetourtable.resx">
-      <DependentUpon>201711021207271_updatetourtable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711021245573_InitialDb.resx">
+      <DependentUpon>201711021245573_InitialDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
