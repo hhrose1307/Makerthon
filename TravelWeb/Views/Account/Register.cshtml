@@ -1,63 +1,129 @@
 ﻿@model TravelWeb.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
-}
-
-<h2>@ViewBag.Title.</h2>
-
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.HoTen, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.BietDanh, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.BietDanh, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.NgaySinh, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @*@Html.TextBoxFor(m => m.NgaySinh, new { @class = "form-control" })*@
-            <input name="NgaySinh" type="date" />
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
+    ViewBag.Title = "Đăng ký";
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<style>
+    #pre-header{
+        display:none;
+    }
+    #post_header{
+        display:none;
+    }
+</style>
+
+<!-- === BEGIN CONTENT === -->
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            <!-- Register Box -->
+            <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
+                <form class="signup-page" action="/Account/Register" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="signup-header">
+                       
+                        <h2>Đăng ký thành viên </h2>
+                        <p>
+                            Bạn là thành viên? Click
+                            <a href="@Url.Action("Login","Account")">VÀO ĐÂY</a>để đăng nhập.
+                        </p>
+                    </div>
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <label>Họ tên</label>
+                    <input class="form-control margin-bottom-20" type="text" name="HoTen" />
+
+                    <label>Biệt danh</label>
+                    <input class="form-control margin-bottom-20" type="text" name="BietDanh" />
+
+
+                    <label>Email</label>
+                    <input class="form-control margin-bottom-20" type="text" name="Email" />
+
+                    <label>Mật khẩu</label>
+                    <input class="form-control margin-bottom-20" type="password" name="Password" />
+
+                    <label>Nhập lại</label>
+                    <input class="form-control margin-bottom-20" type="password" name="ConfirmPassword" />
+
+                    <label>Ngày sinh</label>
+                    <input class="form-control margin-bottom-20" type="date" name="NgaySinh"/>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-4 text-right">
+                            <button class="btn btn-primary" type="submit">Đăng ký</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Register Box -->
+        </div>
+    </div>
+</div>
+<!-- === END CONTENT === -->
+<!-- === BEGIN FOOTER === -->
+<div id="content-bottom-border" class="container">
+</div>
+<div id="base">
+    <div class="container padding-vert-30 margin-top-60">
+        <div class="row">
+            <!-- Contact Details -->
+            <div class="col-md-4 margin-bottom-20">
+                <h3 class="margin-bottom-10">Contact Details</h3>
+                <p>
+                    <span class="fa-phone">Telephone:</span>(212)888-77-88
+                    <br>
+                    <span class="fa-envelope">Email:</span>
+                    <a href="mailto:info@joomla51.com">info@joomla51.com</a>
+                    <br>
+                    <span class="fa-link">Website:</span>
+                    <a href="http://www.joomla51.com">www.joomla51.com</a>
+                </p>
+                <p>
+                    The Dunes, Top Road,
+                    <br>Strandhill,
+                    <br>Co. Sligo,
+                    <br>Ireland
+                </p>
+            </div>
+            <!-- End Contact Details -->
+            <!-- Sample Menu -->
+            <div class="col-md-3 margin-bottom-20">
+                <h3 class="margin-bottom-10">Sample Menu</h3>
+                <ul class="menu">
+                    <li>
+                        <a class="fa-tasks" href="#">Placerat facer possim</a>
+                    </li>
+                    <li>
+                        <a class="fa-users" href="#">Quam nunc putamus</a>
+                    </li>
+                    <li>
+                        <a class="fa-signal" href="#">Velit esse molestie</a>
+                    </li>
+                    <li>
+                        <a class="fa-coffee" href="#">Nam liber tempor</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- End Sample Menu -->
+            <div class="col-md-1"></div>
+            <!-- Disclaimer -->
+            <div class="col-md-3 margin-bottom-20 padding-vert-30 text-center">
+                <h3 class="color-gray margin-bottom-10">Join our Newsletter</h3>
+                <p>
+                    Sign up for our newsletter for all the
+                    <br>latest news and information
+                </p>
+                <input type="email">
+                <br>
+                <button class="btn btn-primary btn-lg margin-top-20" type="button">Subscribe</button>
+            </div>
+            <!-- End Disclaimer -->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
