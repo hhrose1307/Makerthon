@@ -6,14 +6,14 @@ namespace TravelWeb.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
     public sealed partial class InitDb : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(InitDb));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711020815352_InitDb"; }
+            get { return "201711020832557_InitDb"; }
         }
         
         string IMigrationMetadata.Source
