@@ -205,21 +205,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
-    <Compile Include="Migrations\201711020832557_InitDb.cs" />
-    <Compile Include="Migrations\201711020832557_InitDb.Designer.cs">
-      <DependentUpon>201711020832557_InitDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711020830153_initupdateuser.cs" />
-    <Compile Include="Migrations\201711020830153_initupdateuser.Designer.cs">
-      <DependentUpon>201711020830153_initupdateuser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711021124482_Change.cs" />
-    <Compile Include="Migrations\201711021124482_Change.Designer.cs">
-      <DependentUpon>201711021124482_Change.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711021141099_UpdateTourTable.cs" />
-    <Compile Include="Migrations\201711021141099_UpdateTourTable.Designer.cs">
-      <DependentUpon>201711021141099_UpdateTourTable.cs</DependentUpon>
+    <Compile Include="Migrations\201711021150515_updatedatabase.cs" />
+    <Compile Include="Migrations\201711021150515_updatedatabase.Designer.cs">
+      <DependentUpon>201711021150515_updatedatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -526,17 +514,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711020832557_InitDb.resx">
-      <DependentUpon>201711020832557_InitDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711020830153_initupdateuser.resx">
-      <DependentUpon>201711020830153_initupdateuser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711021124482_Change.resx">
-      <DependentUpon>201711021124482_Change.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711021141099_UpdateTourTable.resx">
-      <DependentUpon>201711021141099_UpdateTourTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711021150515_updatedatabase.resx">
+      <DependentUpon>201711021150515_updatedatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
