@@ -155,7 +155,7 @@ namespace TravelWeb.Controllers
                     ChiTietTour ct = new ChiTietTour();
                     ct.MaTour = ma;
                     ct.MaKH = user;
-                    ct.TinhTrang = true;
+                    ct.TinhTrang = false;
                     db.ChiTietTours.Add(ct);
                     db.SaveChanges();
                     return RedirectToAction("Index");

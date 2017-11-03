@@ -207,13 +207,9 @@
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="MailHelper.cs" />
-    <Compile Include="Migrations\201711021851349_cho.cs" />
-    <Compile Include="Migrations\201711021851349_cho.Designer.cs">
-      <DependentUpon>201711021851349_cho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711021907110_AddTinhTrangFromUser.cs" />
-    <Compile Include="Migrations\201711021907110_AddTinhTrangFromUser.Designer.cs">
-      <DependentUpon>201711021907110_AddTinhTrangFromUser.cs</DependentUpon>
+    <Compile Include="Migrations\201711030304374_InitDb.cs" />
+    <Compile Include="Migrations\201711030304374_InitDb.Designer.cs">
+      <DependentUpon>201711030304374_InitDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -534,11 +530,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711021851349_cho.resx">
-      <DependentUpon>201711021851349_cho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711021907110_AddTinhTrangFromUser.resx">
-      <DependentUpon>201711021907110_AddTinhTrangFromUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711030304374_InitDb.resx">
+      <DependentUpon>201711030304374_InitDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
