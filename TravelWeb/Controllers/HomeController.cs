@@ -13,7 +13,10 @@ namespace TravelWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var model = db.Tours;
+            ViewBag.user = db.Users.ToList().Count();
+            return View(model.ToList());
+            
         }
 
         public ActionResult About()
