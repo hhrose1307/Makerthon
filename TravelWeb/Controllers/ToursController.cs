@@ -50,7 +50,33 @@ namespace TravelWeb.Controllers
         [HttpPost]
         public ActionResult AddTour(Tour tour)
         {
-            Session["tour"] = tour;
+            var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
+
+            var xElements = xmlDoc.Element("Root").Elements("Item").Where(x => x.Attribute("type").Value == "province");
+            Tour tour1 = new Tour();
+            foreach (var item in xElements)
+            {
+                if(item.Attribute("id").Value==tour.TinhToi)
+                {
+                    
+                    tour1.TinhToi= item.Attribute("value").Value;
+                }
+                
+
+            }
+
+            var xElement = xmlDoc.Element("Root").Elements("Item")
+                .Single(x => x.Attribute("type").Value == "province" && int.Parse(x.Attribute("id").Value) == int.Parse(tour.TinhToi.ToString()));
+            foreach (var item in xElement.Elements("Item").Where(x => x.Attribute("type").Value == "district"))
+            {
+                if (item.Attribute("id").Value ==tour.HuyenToi)
+                {
+                    tour1.HuyenToi = item.Attribute("value").Value;
+                }
+                
+
+            }
+            Session["tour"] = tour1;
             return RedirectToAction("Create", "Tours");
         }
         // GET: Tours/Create
@@ -74,14 +100,40 @@ namespace TravelWeb.Controllers
                 var tour1 = Session["tour"] as Tour;
                 //Tìm tour
                 var Tour = db.Tours.ToList();
+                var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
+
+                var xElements = xmlDoc.Element("Root").Elements("Item").Where(x => x.Attribute("type").Value == "province");
+                int ma1 = int.Parse(tour.TinhDi);
+                foreach (var item in xElements)
+                {
+                    if (item.Attribute("id").Value == tour.TinhDi)
+                    {
+
+                        tour.TinhDi = item.Attribute("value").Value;
+                    }
+
+
+                }
+
+                var xElement = xmlDoc.Element("Root").Elements("Item")
+                    .Single(x => x.Attribute("type").Value == "province" && int.Parse(x.Attribute("id").Value) == ma1);
+                foreach (var item in xElement.Elements("Item").Where(x => x.Attribute("type").Value == "district"))
+                {
+                    if (item.Attribute("id").Value == tour.HuyenDi)
+                    {
+                        tour.HuyenDi = item.Attribute("value").Value;
+                    }
+
+
+                }
                 int i = 0;
                 foreach (var item in Tour)
                 {
                     i = 0;
-                    if (item.PhuongTien == tour.PhuongTien &&
-                        item.TinhToi == tour1.TinhToi &&
-                        item.TinhDi == tour.TinhDi &&
-                        item.HuyenToi == tour1.HuyenToi &&
+                    if (/*item.PhuongTien == tour.PhuongTien*/String.Compare(item.PhuongTien,tour.PhuongTien)==0 &&
+                        /*item.TinhToi == tour1.TinhToi*/ String.Compare(item.TinhToi,tour1.TinhToi)==0 &&
+                        /*item.TinhDi == tour.TinhDi */String.Compare(item.TinhDi,tour.TinhDi)==0 &&
+                        /*item.HuyenToi == tour1.HuyenToi*/String.Compare(item.HuyenToi,tour1.HuyenToi)==0 &&
                         item.SoNguoi == tour.SoNguoi &&
                         (item.SoNguoi - item.SoNguoiDaCo) >= tour.SoNguoiDaCo
                         )
@@ -107,7 +159,7 @@ namespace TravelWeb.Controllers
                                 content = content.Replace("{{CustomerName}}", nd.HoTen);
                                 content = content.Replace("{{Phone}}", nd.PhoneNumber);
                                 content = content.Replace("{{LinkFaceBook}}",nd.FaceBook);
-                                content = content.Replace("{{Group}}", nd.FaceBook);                              
+                                content = content.Replace("{{Group}}", "http://localhost:56896/Chat/Index");                              
                                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                                 var kh = db.Users.Find(a.MaKH);
                                 new MailHelper().SendMail(kh.Email, "Thông báo mới từ Hoàn Đa Cấp", content);
@@ -146,6 +198,7 @@ namespace TravelWeb.Controllers
                     var tours = Session["tour"] as Tour;
                     tour.TinhToi = tours.TinhToi;
                     tour.HuyenToi = tours.HuyenToi;
+                   
                     db.Tours.Add(tour);
                     db.SaveChanges();
                     
@@ -339,6 +392,25 @@ namespace TravelWeb.Controllers
             db.ChiTietTours.Remove(ct);
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult XemTour()
+        {
+            var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
+
+            var xElements = xmlDoc.Element("Root").Elements("Item").Where(x => x.Attribute("type").Value == "province");
+            var list = new List<Tinh>();
+            Tinh province = null;
+            foreach (var item in xElements)
+            {
+                province = new Tinh();
+                province.ID = int.Parse(item.Attribute("id").Value);
+                province.Name = item.Attribute("value").Value;
+                list.Add(province);
+
+            }
+            var tour = db.Tours.Where(n => n.ThoiGianDi > DateTime.Now).ToList();
+            return View(tour);
         }
     }
 }
