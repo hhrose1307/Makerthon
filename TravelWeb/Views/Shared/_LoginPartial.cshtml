@@ -18,13 +18,13 @@
                     @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu">                 
                     @if (user.Quyen == true)
                     {
                         <li><a href="/nhanghis/create">Đăng phòng</a></li>
                         <li><a href="/nhanghis/DaDang">Phòng đã đăng</a></li>
-                    }
-                        <li><a href="#">Thông tin tài khoản</a></li>
+                    }               
+                       <li><a href="#">Thông tin tài khoản</a></li>
 
                     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 
