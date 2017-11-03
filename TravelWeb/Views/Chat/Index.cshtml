@@ -2,45 +2,47 @@
     ViewBag.Title = "Chat";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section scripts{
+<div class="container background-white">
+    @section scripts{
 
-    <script src="~/Scripts/jquery.signalR-2.1.2.min.js"></script>
-    <script src="~/signalr/hubs"></script>
-    <script>
-        $(function () {
-            var chatHub = $.connection.chatHub;
-            chatHub.client.sendMessageToPage = function (name, message) {
-                $('#discussion').append("<li><strong> <label class='text-danger'>" + name + "</label></strong>" + message + "</li>")
-            };
-            $('#displayName').val(prompt("Enter your name: ", "SignalR Chat"));
-            $('#message').focus();
+        <script src="~/Scripts/jquery.signalR-2.1.2.min.js"></script>
+        <script src="~/signalr/hubs"></script>
+        <script>
+            $(function () {
+                var chatHub = $.connection.chatHub;
+                chatHub.client.sendMessageToPage = function (name, message) {
+                    $('#discussion').append("<li><strong> <label class='text-danger'>" + name + "</label></strong>" + message + "</li>")
+                };
+                $('#displayName').val(prompt("Enter your name: ", "SignalR Chat"));
+                $('#message').focus();
 
-            $.connection.hub.start().done(function () {
-                alert("Enter your name");
-                $('#sendMessage').on("click", function () {
+                $.connection.hub.start().done(function () {
+                    alert("Enter your name");
+                    $('#sendMessage').on("click", function () {
 
-                    var name = $('#displayName').val();
-                    var message = $('#message').val();
-                    chatHub.server.send(name, message);
+                        var name = $('#displayName').val();
+                        var message = $('#message').val();
+                        chatHub.server.send(name, message);
 
-                    $('#message').val("").focus();
+                        $('#message').val("").focus();
+                    });
                 });
             });
-        });
-    </script>
-}
-<br/>
-<div class="content" style="height:600px;">
-    <div class="container">
-        <label>Nhập nội dung</label>
-        <input type="text" id="message" style="width:600px;" />
-        <input type="button" id="sendMessage" value="Send" />
-        <input type="hidden" id="displayName" />
+        </script>
+    }
+    <br />
+    <div class="content" style="height:600px;">
+        <div class="container">
+            <label>Nhập nội dung</label>
+            <input type="text" id="message" style="width:600px;" />
+            <input type="button" id="sendMessage" value="Send" />
+            <input type="hidden" id="displayName" />
 
-        <ul id="discussion"></ul>
+            <ul id="discussion"></ul>
+        </div>
+
     </div>
-    
-</div>
 
-<br/>
+    <br />
 
+    </div>

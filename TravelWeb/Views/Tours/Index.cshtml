@@ -3,89 +3,91 @@
 @{
     ViewBag.Title = "Index";
 }
-    
-<br/>
-<h3>Tour của bạn</h3>
+    <div class="container background-white">
+    <br />
+    <h3>Tour của bạn</h3>
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ThoiGianDi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NgayDiDuKien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TinhDi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HuyenDi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TinhToi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HuyenToi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoNguoi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoNguoiDaCo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhuongTien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioiTinh)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianDi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayDiDuKien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TinhDi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HuyenDi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TinhToi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HuyenToi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoNguoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoNguoiDaCo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhuongTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ThoiGianDi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayDiDuKien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TinhDi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HuyenDi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TinhToi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HuyenToi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoNguoi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoNguoiDaCo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhuongTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GioiTinh)
-        </td>
-        <td>
-            @Html.ActionLink("Xem chi tiết", "ChiTiet", new { id=item.MaTour },new {@class="btn btn-primary" }) 
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThoiGianDi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDiDuKien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhDi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HuyenDi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhToi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HuyenToi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoNguoi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoNguoiDaCo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhuongTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioiTinh)
+                </td>
+                <td>
+                    @Html.ActionLink("Xem chi tiết", "ChiTiet", new { id = item.MaTour }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 
-<br/>
-<div class="col-md-offset-8">
-    <a href="@Url.Action("Index","Chat")">Xem gợi ý khách sạn | </a>
-    <a href="@Url.Action("Index","Chat")">Xem gợi ý địa điểm du lịch</a>
-</div>
-<br/>
+    <br />
+    <div class="col-md-offset-8">
+        <a href="@Url.Action("Index","Chat")">Xem gợi ý khách sạn | </a>
+        <a href="@Url.Action("Index","Chat")">Xem gợi ý địa điểm du lịch</a>
+    </div>
+    <br />
+        </div>
