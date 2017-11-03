@@ -63,7 +63,7 @@
             <span>@item.Mota</span>
         </td>
         <td>
-            <span>@item.linkfb</span>
+            <a href="@item.linkfb" target="_blank">Click here?</a>
         </td>
         <td>
             @if(item.TinhTrang==true)
@@ -83,15 +83,20 @@
 
 </table>
 <br/>
+    <div class="col-md-6">
+        <a href="@Url.Action("Index","Chat")">Chat trực tuyến </a>
+        
+    </div>
+    <div class="col-md-offset-10">
+        
+        
+        @if (ViewBag.TinhTrang == false)
+        {
+            @Html.ActionLink("Xác nhận", "XacNhan", "Tours", new { @class = "btn btn-primary" })
+        }
 
-<div class="col-md-offset-10">
-    @if (ViewBag.TinhTrang == false)
-    {
-        @Html.ActionLink("Xác nhận", "XacNhan", "Tours", new { @class = "btn btn-primary" })
-    }
-    
-    @Html.ActionLink("Hủy", "Huy", "Tours", new { @class = "btn btn-danger", @style = "width:78px;" })
-</div>
+        @Html.ActionLink("Hủy", "Huy", "Tours", new { @class = "btn btn-danger", @style = "width:78px;" })
+    </div>
 
 
 <br/>

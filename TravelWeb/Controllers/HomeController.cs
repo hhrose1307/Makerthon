@@ -79,5 +79,15 @@ namespace TravelWeb.Controllers
                 status = true
             });
         }
+
+        public PartialViewResult LienHe()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult HoiDap()
+        {
+            return PartialView();
+        }
     }
 }
