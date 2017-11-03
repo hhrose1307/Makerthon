@@ -4,7 +4,7 @@
     var db = new ApplicationDbContext();
     var user = db.Users.Find(User.Identity.GetUserId());
 }
-<div style="margin-top:25px;">
+<div style="margin-top:40px;">
     @if (Request.IsAuthenticated)
     {
         using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -14,11 +14,11 @@
 
 
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                <button class="btn  dropdown-toggle" type="button" data-toggle="dropdown" >
                     @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" style="background-color: white">
                     @if (user.Quyen == true)
                     {
                         <li><a href="/nhanghis/create">Đăng phòng</a></li>
@@ -26,7 +26,7 @@
                     }
                         <li><a href="#">Thông tin tài khoản</a></li>
 
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Đăng Xuất</a></li>
 
                 </ul>
             </div>
@@ -34,9 +34,9 @@
     }
     else
     {
-        <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <ul class="nav navbar-nav navbar-right" style="background-color:darkgray">
+           <li>@Html.ActionLink("Đăng Ký", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Đăng Nhập", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         </ul>
     }
 </div>

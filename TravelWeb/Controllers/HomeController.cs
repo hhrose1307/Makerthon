@@ -13,9 +13,9 @@ namespace TravelWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            var model = db.Tours;
+            var model = db.Tours.ToList();
             ViewBag.user = db.Users.ToList().Count();
-            return View(model.ToList());
+            return View(model);
             
         }
 
@@ -25,7 +25,10 @@ namespace TravelWeb.Controllers
 
             return View();
         }
-
+        public ActionResult Review()
+        {
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

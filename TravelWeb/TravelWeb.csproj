@@ -521,6 +521,7 @@
     <Content Include="Views\NhaNghis\Edit.cshtml" />
     <Content Include="Views\NhaNghis\Index.cshtml" />
     <Content Include="Views\NhaNghis\DaDang.cshtml" />
+    <Content Include="Views\Home\Review.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
