@@ -208,13 +208,9 @@
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="MailHelper.cs" />
-    <Compile Include="Migrations\201711031310099_InitDb.cs" />
-    <Compile Include="Migrations\201711031310099_InitDb.Designer.cs">
-      <DependentUpon>201711031310099_InitDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711031314355_updateTours.cs" />
-    <Compile Include="Migrations\201711031314355_updateTours.Designer.cs">
-      <DependentUpon>201711031314355_updateTours.cs</DependentUpon>
+    <Compile Include="Migrations\201711031333290_dd.cs" />
+    <Compile Include="Migrations\201711031333290_dd.Designer.cs">
+      <DependentUpon>201711031333290_dd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -547,11 +543,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711031310099_InitDb.resx">
-      <DependentUpon>201711031310099_InitDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711031314355_updateTours.resx">
-      <DependentUpon>201711031314355_updateTours.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711031333290_dd.resx">
+      <DependentUpon>201711031333290_dd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
