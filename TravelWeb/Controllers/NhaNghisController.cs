@@ -18,8 +18,27 @@ namespace TravelWeb.Controllers
         // GET: NhaNghis
         public ActionResult Index()
         {
+            return View(db.NhaNghis.ToList());
+        }
+        public ActionResult DaDang()
+        {
             var user = User.Identity.GetUserId();
             return View(db.NhaNghis.Where(x=>x.MaKH==user).ToList());
+        }
+
+        // GET: NhaNghis/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            NhaNghi nhaNghi = db.NhaNghis.Find(id);
+            if (nhaNghi == null)
+            {
+                return HttpNotFound();
+            }
+            return View(nhaNghi);
         }
 
         // GET: NhaNghis/Create
@@ -33,11 +52,10 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
+        public ActionResult Create([Bind(Include = "Ma,TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
         {
             if (ModelState.IsValid)
             {
-                nhaNghi.MaKH = User.Identity.GetUserId();
                 db.NhaNghis.Add(nhaNghi);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -66,7 +84,7 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
+        public ActionResult Edit([Bind(Include = "Ma,TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
         {
             if (ModelState.IsValid)
             {
