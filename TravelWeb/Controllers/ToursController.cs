@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using TravelWeb.Models;
 using Microsoft.AspNet.Identity;
 using TravelWeb.ViewModel;
+using System.Configuration;
 
 namespace TravelWeb.Controllers
 {
@@ -95,6 +96,30 @@ namespace TravelWeb.Controllers
                         {
                             return RedirectToAction("Login", "Account");
                         }
+
+                        var nd = db.Users.SingleOrDefault(n => n.Id == user);
+                        var ctua = db.ChiTietTours.Where(n => n.MaTour == item.MaTour).ToList();
+                        foreach(var a in ctua)
+                        {
+                            try
+                            {
+                                string content = System.IO.File.ReadAllText(Server.MapPath("~/Mail/SendMail.html"));
+                                content = content.Replace("{{CustomerName}}", nd.HoTen);
+                                content = content.Replace("{{Phone}}", nd.PhoneNumber);
+                                content = content.Replace("{{LinkFaceBook}}",nd.FaceBook);
+                                content = content.Replace("{{Group}}", nd.FaceBook);                              
+                                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                                var kh = db.Users.Find(a.MaKH);
+                                new MailHelper().SendMail(kh.Email, "Thông báo mới từ Hoàn Đa Cấp", content);
+                                //new MailHelper().SendMail(toEmail, "Thông báo mới từ Hoàn Đa Cấp", content);
+                            }
+                            catch
+                            {
+                                ViewBag.error = "fail";
+                            }
+                        }
+
+
                         int ma = item.MaTour;
                         ChiTietTour ct = new ChiTietTour();
                         ct.MaTour = ma;
