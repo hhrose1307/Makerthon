@@ -6,90 +6,91 @@
     ViewBag.Title = "Chi tiết Tour";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container background-white">
+    <br />
+    <br />
 
-<br/>
-<br/>
+
+    <table class="table">
+        <tr>
+            <th>
+                <span>Tên bạn đồng hành</span>
+            </th>
+            <th>
+                <span>Ngày sinh</span>
+            </th>
+            <th>
+                <span>Giới tính</span>
+            </th>
+            <th>
+                <span>Mô tả</span>
+            </th>
+            <th>
+                <span>Link FaceBook</span>
+            </th>
+            <th>
+                <span>Tình Trạng</span>
+            </th>
+
+            @*<th></th>*@
+            <th>
+                Ảnh đại diện
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span>@item.TenKh</span>
+                </td>
+                <td>
+                    <span>@item.ngaysinh</span>
+
+                </td>
+                <td>
+                    @if (item.gioitinh == true)
+                    {
+                        <span>Nam</span>
+                    }
+                    else
+                    {
+                        <span>Nữ</span>
+                    }
 
 
-<table class="table">
-    <tr>
-        <th>
-            <span>Tên bạn đồng hành</span>
-        </th>
-        <th>
-            <span>Ngày sinh</span>
-        </th>
-        <th>
-            <span>Giới tính</span>
-        </th>
-        <th>
-            <span>Mô tả</span>
-        </th>
-        <th>
-            <span>Link FaceBook</span>
-        </th>
-        <th>
-            <span>Tình Trạng</span>
-        </th>
+                </td>
+                <td>
+                    <span>@item.Mota</span>
+                </td>
+                <td>
+                    <a href="@item.linkfb" target="_blank">Click here?</a>
+                </td>
+                <td>
+                    @if (item.TinhTrang == true)
+                    {
+                        <span>Đã đồng ý</span>
+                    }
+                    else
+                    {
+                        <span>Đang chờ</span>
+                    }
+                </td>
+                <th>
+                    <img src="@Url.Content("~/Images/users/"+item.anh)" style="width:80px;height:auto;" />
+                </th>
+            </tr>
+        }
 
-        @*<th></th>*@
-        <th>
-            Ảnh đại diện
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <span>@item.TenKh</span>
-        </td>
-        <td>
-            <span>@item.ngaysinh</span>
-            
-        </td>
-        <td>
-            @if (item.gioitinh == true)
-            {
-                <span>Nam</span>
-            }
-            else
-            {
-                <span>Nữ</span>
-            }
-                
-            
-        </td>
-        <td>
-            <span>@item.Mota</span>
-        </td>
-        <td>
-            <a href="@item.linkfb" target="_blank">Click here?</a>
-        </td>
-        <td>
-            @if(item.TinhTrang==true)
-            {
-                <span>Đã đồng ý</span>
-            }
-            else
-            {
-                <span>Đang chờ</span>
-            }
-        </td>
-        <th>
-            <img src="@Url.Content("~/Images/users/"+item.anh)" style="width:80px;height:auto;" />
-        </th>
-    </tr>
-}
-
-</table>
-<br/>
+    </table>
+    <br />
     <div class="col-md-6">
         <a href="@Url.Action("Index","Chat")">Chat trực tuyến </a>
-        
+
     </div>
     <div class="col-md-offset-10">
-        
-        
+
+
         @if (ViewBag.TinhTrang == false)
         {
             @Html.ActionLink("Xác nhận", "XacNhan", "Tours", new { @class = "btn btn-primary" })
@@ -99,4 +100,5 @@
     </div>
 
 
-<br/>
+    <br />
+    </div>
