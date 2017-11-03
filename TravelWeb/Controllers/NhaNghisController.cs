@@ -52,7 +52,7 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Ma,TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
+        public ActionResult Create([Bind(Include = "TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Ma,TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
+        public ActionResult Edit([Bind(Include = "TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
         {
             if (ModelState.IsValid)
             {

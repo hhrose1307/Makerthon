@@ -208,9 +208,9 @@
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="MailHelper.cs" />
-    <Compile Include="Migrations\201711031249168_3.cs" />
-    <Compile Include="Migrations\201711031249168_3.Designer.cs">
-      <DependentUpon>201711031249168_3.cs</DependentUpon>
+    <Compile Include="Migrations\201711031333290_dd.cs" />
+    <Compile Include="Migrations\201711031333290_dd.Designer.cs">
+      <DependentUpon>201711031333290_dd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -380,6 +380,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\cty\cty.jpg" />
+    <Content Include="Images\diadanh\1.jpg" />
+    <Content Include="Images\diadanh\2.jpg" />
     <Content Include="Images\users\noavatar.jpg" />
     <Content Include="Mail\SendMail.html" />
     <Content Include="Scripts\bootstrap.js" />
@@ -542,8 +544,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711031249168_3.resx">
-      <DependentUpon>201711031249168_3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711031333290_dd.resx">
+      <DependentUpon>201711031333290_dd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
