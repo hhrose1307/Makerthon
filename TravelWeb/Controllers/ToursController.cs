@@ -99,6 +99,7 @@ namespace TravelWeb.Controllers
                         ChiTietTour ct = new ChiTietTour();
                         ct.MaTour = ma;
                         ct.MaKH = user;
+                        ct.TinhTrang = false;
                         db.ChiTietTours.Add(ct);
                         db.SaveChanges();
 
@@ -129,6 +130,7 @@ namespace TravelWeb.Controllers
                     ChiTietTour ct = new ChiTietTour();
                     ct.MaTour = ma;
                     ct.MaKH = user;
+                    ct.TinhTrang = true;
                     db.ChiTietTours.Add(ct);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -250,12 +252,22 @@ namespace TravelWeb.Controllers
             });
         }
 
-        public ActionResult ChiTiet(int id=0)
+        public ActionResult ChiTiet(int? id)
         {
+
+            Session["MaTour"] = id;
+            var user = User.Identity.GetUserId();
+            var ct = db.ChiTietTours.SingleOrDefault(n => n.MaTour == id && n.MaKH == user);
+            if (ct == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.TinhTrang = ct.TinhTrang;
             var model = (from a in db.ChiTietTours
                          join b in db.Users
                          on a.MaKH equals b.Id
-                         where a.MaTour == id
+                         where a.MaTour == id & a.MaKH!=user
                          select new ChiTietViewModel
                          {
                              TenKh = b.HoTen,
@@ -263,11 +275,45 @@ namespace TravelWeb.Controllers
                              gioitinh=b.GioiTinh,
                              linkfb=b.FaceBook,
                              Mota=a.MoTa,
-                             TinhTrang=a.TinhTrang
+                             TinhTrang=a.TinhTrang,
+                             anh=b.Anh
                          }
                          );
             return View(model.ToList());
 
+        }
+
+        public ActionResult XacNhan()
+        {
+            int id = int.Parse(Session["MaTour"].ToString());
+            var user = User.Identity.GetUserId();
+            var ct = db.ChiTietTours.SingleOrDefault(n => n.MaTour == id && n.MaKH == user);
+            if(ct==null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            ct.TinhTrang =true;
+            db.SaveChanges();
+            return RedirectToAction("ChiTiet",new { @id=id});
+        }
+
+        public ActionResult Huy()
+        {
+            int id = int.Parse(Session["MaTour"].ToString());
+            var user = User.Identity.GetUserId();
+            var ct = db.ChiTietTours.SingleOrDefault(n => n.MaTour == id && n.MaKH == user);
+            if (ct == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            var tour = db.Tours.SingleOrDefault(n => n.MaTour == id);
+            tour.SoNguoiDaCo -= 1;           
+            db.ChiTietTours.Remove(ct);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

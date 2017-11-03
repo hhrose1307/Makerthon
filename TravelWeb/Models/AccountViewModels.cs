@@ -104,7 +104,8 @@ namespace TravelWeb.Models
         public string Zalo { get; set; }
 
         [Display(Name ="Ngày sinh")]
-
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         public DateTime NgaySinh { get; set; }
 
     }

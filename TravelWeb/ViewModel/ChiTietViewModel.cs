@@ -17,5 +17,7 @@ namespace TravelWeb.ViewModel
 
         public string Mota { get; set; }
         public bool TinhTrang { get; set; }
+
+        public string anh { get; set; }
     }
 }
