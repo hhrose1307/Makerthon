@@ -201,6 +201,7 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NhaNghisController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +211,10 @@
     <Compile Include="Migrations\201711030304374_InitDb.cs" />
     <Compile Include="Migrations\201711030304374_InitDb.Designer.cs">
       <DependentUpon>201711030304374_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711030849487_PhanQuyen.cs" />
+    <Compile Include="Migrations\201711030849487_PhanQuyen.Designer.cs">
+      <DependentUpon>201711030849487_PhanQuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -510,6 +515,11 @@
     <Content Include="Views\Tours\Index.cshtml" />
     <Content Include="Views\Home\_Tour.cshtml" />
     <Content Include="Views\Tours\ChiTiet.cshtml" />
+    <Content Include="Views\NhaNghis\Create.cshtml" />
+    <Content Include="Views\NhaNghis\Delete.cshtml" />
+    <Content Include="Views\NhaNghis\Details.cshtml" />
+    <Content Include="Views\NhaNghis\Edit.cshtml" />
+    <Content Include="Views\NhaNghis\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -532,6 +542,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711030304374_InitDb.resx">
       <DependentUpon>201711030304374_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711030849487_PhanQuyen.resx">
+      <DependentUpon>201711030849487_PhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
