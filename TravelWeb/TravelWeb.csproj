@@ -378,6 +378,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\cty\cty.jpg" />
     <Content Include="Images\users\noavatar.jpg" />
     <Content Include="Mail\SendMail.html" />
     <Content Include="Scripts\bootstrap.js" />
@@ -510,6 +511,9 @@
     <Content Include="Views\Tours\Index.cshtml" />
     <Content Include="Views\Home\_Tour.cshtml" />
     <Content Include="Views\Tours\ChiTiet.cshtml" />
+    <Content Include="Views\Home\LienHe.cshtml" />
+    <Content Include="Views\Home\HoiDap.cshtml" />
+    <Content Include="Views\Tours\XemTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
