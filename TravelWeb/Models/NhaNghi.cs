@@ -10,8 +10,6 @@
     public partial class NhaNghi
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         [Display(Name ="Mã số")]
         public int Ma { get; set; }
 

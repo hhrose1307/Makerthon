@@ -201,15 +201,16 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NhaNghisController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="MailHelper.cs" />
-    <Compile Include="Migrations\201711031139126_udatedb.cs" />
-    <Compile Include="Migrations\201711031139126_udatedb.Designer.cs">
-      <DependentUpon>201711031139126_udatedb.cs</DependentUpon>
+    <Compile Include="Migrations\201711031249168_3.cs" />
+    <Compile Include="Migrations\201711031249168_3.Designer.cs">
+      <DependentUpon>201711031249168_3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -514,6 +515,12 @@
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\Home\HoiDap.cshtml" />
     <Content Include="Views\Tours\XemTour.cshtml" />
+    <Content Include="Views\NhaNghis\Create.cshtml" />
+    <Content Include="Views\NhaNghis\Delete.cshtml" />
+    <Content Include="Views\NhaNghis\Details.cshtml" />
+    <Content Include="Views\NhaNghis\Edit.cshtml" />
+    <Content Include="Views\NhaNghis\Index.cshtml" />
+    <Content Include="Views\NhaNghis\DaDang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -534,8 +541,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711031139126_udatedb.resx">
-      <DependentUpon>201711031139126_udatedb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711031249168_3.resx">
+      <DependentUpon>201711031249168_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
