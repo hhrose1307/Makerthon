@@ -1,5 +1,9 @@
-﻿@using Microsoft.AspNet.Identity
-
+﻿@using Microsoft.AspNet.Identity;
+@using TravelWeb.Models;
+@{
+    var db = new ApplicationDbContext();
+    var user = db.Users.Find(User.Identity.GetUserId());
+}
 <div style="margin-top:25px;">
     @if (Request.IsAuthenticated)
     {
@@ -7,19 +11,32 @@
         {
             @Html.AntiForgeryToken()
 
-            <ul class="nav navbar-nav navbar-right">
-                <li>
+
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                     @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                </li>
-                <li><a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
-            </ul>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    @if (user.Quyen == true)
+                    {
+                        <li><a href="/nhanghis/create">Đăng phòng</a></li>
+                        <li><a href="/nhanghis/index">Phòng đã đăng</a></li>
+                    }
+                        <li><a href="#">Thông tin tài khoản</a></li>
+
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+                </ul>
+            </div>
         }
     }
     else
     {
         <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Đăng ký", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-            <li>@Html.ActionLink("Đăng nhập", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         </ul>
     }
 </div>
