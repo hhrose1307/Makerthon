@@ -16,7 +16,7 @@
                 {
                     <div class="row">
                         <div class="col-md-6 animate fadeIn">
-                            <img src="~/assets/img/fillers/aboutme.jpg" alt="about-me" class="margin-top-10">
+                            <img src="@Url.Content("~/Images/diadanh/"+item.Anh)" alt="about-me" class="margin-top-10">
                             <ul class="list-inline about-me-icons margin-vert-20">
                                 <li>
                                     <a href="#">
@@ -42,17 +42,22 @@
                         </div>
                         <div class="col-md-6 margin-bottom-10 animate fadeInRight">
                             <h3 class="padding-top-10 pull-left">
-                                Địa điểm tới: DAKLAK
-                                Địa điểm đi: TP.HỒ CHÍ MINH
+                                Điểm xuất phát: @item.HuyenDi - @item.TinhDi<br />
+                                Địa điểm tới: @item.HuyenToi - @item.HuyenToi
+
                             </h3>
                             <div class="clearfix"></div>
                             <h4>
-                                <em>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo facilis est et expedita distinctio minus id quod maxime placeat facere possimus.</em>
+                                <em>Ngày xuất phát: @item.ThoiGianDi</em> <br />
+                                <em>Thời gian dự kiến: @item.NgayDiDuKien ngày</em><br />
+                                <em>Số thành viên tối đa: @item.SoNguoi</em><br />
+                                <em>Thành viên đã có:@item.SoNguoiDaCo</em><br />
+                                <em>Phương tiện đi: @item.PhuongTien</em>
                             </h4>
-                            <p>
-                                Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
-                            </p>
+                            @*<p>
+                                    Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
+                                </p>*@
                         </div>
                     </div>
                     <hr>
