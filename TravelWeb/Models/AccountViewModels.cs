@@ -108,6 +108,7 @@ namespace TravelWeb.Models
         [DataType(DataType.Date)]
         public DateTime NgaySinh { get; set; }
 
+        public bool GioiTinh { get; set; }
         public bool Quyen { get; set; }
 
     }
