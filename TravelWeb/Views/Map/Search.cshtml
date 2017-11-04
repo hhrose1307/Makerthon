@@ -135,13 +135,13 @@
                             };
 
                             var service = new google.maps.places.PlacesService(map);
-
+                            var param = getElementById("list-layout")
                             service.nearbySearch(request, callback);
                             function callback(results, status) {
                                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                                     for (var i = 0; i < results.length; i++) {
-                                        createMarker(results[i]);
-
+                                        param.setContent(result[i].formatted_address + "/n")
+           
                                     }
                                 }
                             }
@@ -189,6 +189,9 @@
             });
         }
     </script>
+<p id="list-layout">
+   
+</p>
     <hr>
 <!--Google map Place API-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASmQugLkCndcVe7Vg7D0_ziNN08piUNyM&libraries=places&callback=initMap" async defer> </script>
