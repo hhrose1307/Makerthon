@@ -209,9 +209,9 @@
     </Compile>
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="MailHelper.cs" />
-    <Compile Include="Migrations\201711040219332_updb.cs" />
-    <Compile Include="Migrations\201711040219332_updb.Designer.cs">
-      <DependentUpon>201711040219332_updb.cs</DependentUpon>
+    <Compile Include="Migrations\201711040244408_cc.cs" />
+    <Compile Include="Migrations\201711040244408_cc.Designer.cs">
+      <DependentUpon>201711040244408_cc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -550,8 +550,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711040219332_updb.resx">
-      <DependentUpon>201711040219332_updb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711040244408_cc.resx">
+      <DependentUpon>201711040244408_cc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
