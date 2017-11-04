@@ -25,7 +25,7 @@ namespace TravelWeb.Models
 
         public string Zalo { get; set; }
 
-        public bool GioiTinh { get; set; }
+        public string GioiTinh { get; set; }
         public bool Quyen { get; set; }
 
 
