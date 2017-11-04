@@ -384,7 +384,9 @@
     <Content Include="Images\diadanh\1.jpg" />
     <Content Include="Images\diadanh\2.jpg" />
     <Content Include="Images\ico.ico" />
+    <Content Include="Images\logo\ico.png" />
     <Content Include="Images\logo\logo.png" />
+    <Content Include="Images\logo\logonew.png" />
     <Content Include="Images\users\noavatar.jpg" />
     <Content Include="Mail\SendMail.html" />
     <Content Include="Scripts\bootstrap.js" />
