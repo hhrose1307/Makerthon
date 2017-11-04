@@ -7,13 +7,13 @@ namespace TravelWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class ab : IMigrationMetadata
+    public sealed partial class cc : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ab));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(cc));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711031429299_ab"; }
+            get { return "201711040244408_cc"; }
         }
         
         string IMigrationMetadata.Source

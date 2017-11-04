@@ -3,14 +3,16 @@ namespace TravelWeb.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ab : DbMigration
+    public partial class cc : DbMigration
     {
         public override void Up()
         {
+            AlterColumn("dbo.AspNetUsers", "GioiTinh", c => c.String());
         }
         
         public override void Down()
         {
+            AlterColumn("dbo.AspNetUsers", "GioiTinh", c => c.Boolean(nullable: false));
         }
     }
 }

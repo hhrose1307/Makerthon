@@ -12,7 +12,7 @@ namespace TravelWeb.ViewModel
         public string TenKh { get; set; }
         public DateTime ngaysinh { get; set; }
 
-        public bool gioitinh { get; set; }
+        public string gioitinh { get; set; }
         public string linkfb { get; set; }
 
         public string Mota { get; set; }

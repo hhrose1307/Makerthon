@@ -8,11 +8,12 @@
 }
 
 <style>
-    #pre-header{
-        display:none;
+    #pre-header {
+        display: none;
     }
-    #post_header{
-        display:none;
+
+    #post_header {
+        display: none;
     }
 </style>
 
@@ -25,7 +26,7 @@
                 <form class="signup-page" action="/Account/Register" method="post">
                     @Html.AntiForgeryToken()
                     <div class="signup-header">
-                       
+
                         <h2>Đăng ký thành viên </h2>
                         <p>
                             Bạn là thành viên? Click
@@ -50,9 +51,13 @@
                     <input class="form-control margin-bottom-20" type="password" name="ConfirmPassword" />
 
                     <label>Ngày sinh</label>
-                    <input class="form-control margin-bottom-20" type="date" name="NgaySinh"/>
-                    <input type="radio" name="Quyen" value="true" /><label>Chủ đầu tư</label>
-                    <input type="radio" name="Quyen" value="false" /><label>Khách thường</label>
+                    <input class="form-control margin-bottom-20" type="date" name="NgaySinh" />
+                    <br />
+                    Giới tính:  <input type="radio" name="GioiTinh" value="Nam" /><label>Nam</label>
+                        <input type="radio" name="GioiTinh" value="Nữ" /><label>Nữ</label>
+                    <br />
+                    <input type="radio" name="Quyen" value="true" /><label>Nhà liên kết</label>
+                    <input type="radio" name="Quyen" value="false" style="margin-left:30px" /><label>Khách hàng</label>
                     <hr>
                     <div class="row">
                         <div class="col-lg-4 text-right">
