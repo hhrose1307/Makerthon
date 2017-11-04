@@ -22,6 +22,8 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=PT+Sans" type="text/css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+
+    <script type='text/javascript'>window._sbzq || function (e) { e._sbzq = []; var t = e._sbzq; t.push(["_setAccount", 72077]); var n = e.location.protocol == "https:" ? "https:" : "http:"; var r = document.createElement("script"); r.type = "text/javascript"; r.async = true; r.src = n + "//static.subiz.com/public/js/loader.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) }(window);</script>
 </head>
 <body>
     <div id="body-bg">
@@ -47,7 +49,7 @@
                     <!-- Logo -->
                     <div class="logo col-md-3">
                         <a href="@Url.Action("Index","Home")" title="Về trang chủ">
-                            <img src="~/assets/img/logo.png" alt="Logo" />
+                            <img src="~/Images/logo/logo.png" alt="Logo" style="width:100%;margin-top:0px;"/>
                         </a>
                     </div>
                     <!-- End Logo -->
@@ -71,81 +73,17 @@
                                 <a href="@Url.Action("Index","Home")" class="fa-home">Trang Chủ</a>
                             </li>
                             <li>
-                                <span class="fa-gears">Features</span>
-                                <ul>
-                                    <li class="parent">
-                                        <span>Typography</span>
-                                        <ul>
-                                            <li>
-                                                <a href="features-typo-basic.html">Basic Typography</a>
-                                            </li>
-                                            <li>
-                                                <a href="features-typo-blockquotes.html">Blockquotes</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="parent">
-                                        <span>Components</span>
-                                        <ul>
-                                            <li>
-                                                <a href="features-labels.html">Labels</a>
-                                            </li>
-                                            <li>
-                                                <a href="features-progress-bars.html">Progress Bars</a>
-                                            </li>
-                                            <li>
-                                                <a href="features-panels.html">Panels</a>
-                                            </li>
-                                            <li>
-                                                <a href="features-pagination.html">Pagination</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="parent">
-                                        <span>Icons</span>
-                                        <ul>
-                                            <li>
-                                                <a href="features-icons.html">Icons General</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="features-testimonials.html">Testimonials</a>
-                                    </li>
-                                    <li>
-                                        <a href="features-animate-on-scroll.html">Animate On Scroll</a>
-                                    </li>
-                                </ul>
+                                <span class="fa-copy"><a href="@Url.Action("XemTour","Tours")">Xem Tour</a></span>
                             </li>
                             <li>
-                                <span class="fa-copy">Pages</span>
-                                <ul>
-                                    <li>
-                                        <a href="pages-about-us.html">About Us</a>
-                                    </li>
-                                </ul>
+                                <span class="fa-th"><a href="@Url.Action("Index","Tours")">Tour của tôi</a></span>
+                            </li>
+                            
+                            <li>
+                                <span class="fa-font"><a href="@Url.Action("TroGiup","Home")">Tìm Phòng nghỉ</a></span>
                             </li>
                             <li>
-                                <span class="fa-th">Portfolio</span>
-                                <ul>
-                                    <li>
-                                        <a href="portfolio-2-column.html">2 Column</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="fa-font">Blog</span>
-                                <ul>
-                                    <li>
-                                        <a href="blog-list.html">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-single.html">Blog Single Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact.html" class="fa-comment">Contact</a>
+                                <a href="@Url.Action("LienHe","Home")">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
@@ -158,12 +96,15 @@
        
         <!-- === END HEADER === -->
         <!-- === BEGIN CONTENT === -->
-        
-        <div class="container background-white">
+        <div id="post_header" class="container" style="height:340px">
+        </div>
+        <div id="content-top-border" class="container">
+        </div>
+       
             @RenderBody()
             
-        </div>
-            </div>
+   
+        
                 <!-- === BEGIN FOOTER === -->
                 <div id="content-bottom-border" class="container">
                 </div>
@@ -172,55 +113,55 @@
                         <div class="row">
                             <!-- Contact Details -->
                             <div class="col-md-4 margin-bottom-20">
-                                <h3 class="margin-bottom-10">Contact Details</h3>
+                                <h3 class="margin-bottom-10">Về chúng tôi</h3>
                                 <p>
-                                    <span class="fa-phone">Telephone:</span>(212)888-77-88
+                                    <span class="fa-phone">Điện thoại liên hệ:</span>(+84)986 735 313
                                     <br>
                                     <span class="fa-envelope">Email:</span>
-                                    <a href="mailto:info@joomla51.com">info@joomla51.com</a>
+                                    <a href="mailto:info@joomla51.com">lianhxinh10@gmail.com</a>
                                     <br>
                                     <span class="fa-link">Website:</span>
-                                    <a href="http://www.joomla51.com">www.joomla51.com</a>
+                                    <a href="http://www.joomla51.com">www.dulichviet.com</a>
                                 </p>
                                 <p>
-                                    The Dunes, Top Road,
-                                    <br>Strandhill,
-                                    <br>Co. Sligo,
-                                    <br>Ireland
+                                    36/26 D2,
+                                    <br>Phường 25,
+                                    <br>Q. Bình Thạnh,
+                                    <br>TP.Hồ Chí Minh
                                 </p>
                             </div>
                             <!-- End Contact Details -->
                             <!-- Sample Menu -->
                             <div class="col-md-3 margin-bottom-20">
-                                <h3 class="margin-bottom-10">Sample Menu</h3>
+                                <h3 class="margin-bottom-10">Các dịch vụ</h3>
                                 <ul class="menu">
                                     <li>
-                                        <a class="fa-tasks" href="#">Placerat facer possim</a>
+                                        <a class="fa-tasks" href="#">Xem Tours</a>
                                     </li>
                                     <li>
-                                        <a class="fa-users" href="#">Quam nunc putamus</a>
+                                        <a class="fa-users" href="#">Tìm bạn đồng hành</a>
                                     </li>
                                     <li>
-                                        <a class="fa-signal" href="#">Velit esse molestie</a>
+                                        <a class="fa-signal" href="#">Liên hệ</a>
                                     </li>
                                     <li>
-                                        <a class="fa-coffee" href="#">Nam liber tempor</a>
+                                        <a class="fa-coffee" href="#">Trợ giúp</a>
                                     </li>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
                             <!-- End Sample Menu -->
-                            <div class="col-md-1"></div>
                             <!-- Disclaimer -->
-                            <div class="col-md-3 margin-bottom-20 padding-vert-30 text-center">
-                                <h3 class="color-gray margin-bottom-10">Join our Newsletter</h3>
+                            <div class="col-md-4 margin-bottom-20 padding-vert-30 text-center">
+                                @*<h3 class="color-gray margin-bottom-10">Join our Newsletter</h3>
                                 <p>
                                     Sign up for our newsletter for all the
                                     <br>latest news and information
                                 </p>
                                 <input type="email">
                                 <br>
-                                <button class="btn btn-primary btn-lg margin-top-20" type="button">Subscribe</button>
+                                <button class="btn btn-primary btn-lg margin-top-20" type="button">Subscribe</button>*@
+                                <img src="~/Images/cty/cty.jpg" style="height:180px;" />
                             </div>
                             <!-- End Disclaimer -->
                             <div class="clearfix"></div>
@@ -275,6 +216,8 @@
 
                 <!--Tỉnh tới, huyện tới-->
             <script src="~/assets/client/js/controller/userController.js"></script>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
         <script src="~/Scripts/jquery.validate.min.js"></script>
                 @RenderSection("scripts", required: false)

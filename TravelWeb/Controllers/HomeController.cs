@@ -86,9 +86,9 @@ namespace TravelWeb.Controllers
             });
         }
 
-        public PartialViewResult LienHe()
+        public ActionResult LienHe()
         {
-            return PartialView();
+            return View();
         }
 
         public PartialViewResult HoiDap()

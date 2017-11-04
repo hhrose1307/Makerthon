@@ -19,6 +19,7 @@ namespace TravelWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Tours
+        [Authorize]
         public ActionResult Index()
         {
             var user = User.Identity.GetUserId();
@@ -48,6 +49,7 @@ namespace TravelWeb.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult AddTour(Tour tour)
         {
             var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
@@ -79,6 +81,7 @@ namespace TravelWeb.Controllers
             Session["tour"] = tour1;
             return RedirectToAction("Create", "Tours");
         }
+        [Authorize]
         // GET: Tours/Create
         public ActionResult Create()
         {
@@ -93,6 +96,7 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(Tour tour)
         {
             if (ModelState.IsValid)
@@ -396,21 +400,41 @@ namespace TravelWeb.Controllers
 
         public ActionResult XemTour()
         {
-            var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
-
-            var xElements = xmlDoc.Element("Root").Elements("Item").Where(x => x.Attribute("type").Value == "province");
-            var list = new List<Tinh>();
-            Tinh province = null;
-            foreach (var item in xElements)
-            {
-                province = new Tinh();
-                province.ID = int.Parse(item.Attribute("id").Value);
-                province.Name = item.Attribute("value").Value;
-                list.Add(province);
-
-            }
             var tour = db.Tours.Where(n => n.ThoiGianDi > DateTime.Now).ToList();
             return View(tour);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult ThamGia(FormCollection f)
+        {
+            int SoNguoi = int.Parse(f["SoNguoi"].ToString());
+            int MaTour = int.Parse(f["MaTour"].ToString());
+
+            var tour = db.Tours.SingleOrDefault(n => n.MaTour == MaTour);
+            if(tour==null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+         
+            if(tour.SoNguoi-tour.SoNguoiDaCo<SoNguoi)
+            {
+                ViewBag.ThongBao = "Tour hiện đã đủ số người, hãy chọn tour khác!";
+                return RedirectToAction("XemTour", "Tours");
+            }
+            //Tour
+            tour.SoNguoiDaCo +=SoNguoi;
+            db.SaveChanges();
+            //ChiTietTour
+            var user = User.Identity.GetUserId();
+            ChiTietTour ct = new ChiTietTour();
+            ct.MaTour = MaTour;
+            ct.MaKH = user;
+            ct.TinhTrang = false;
+            db.ChiTietTours.Add(ct);
+            db.SaveChanges();     
+            return RedirectToAction("Index", "Tours");
         }
     }
 }
