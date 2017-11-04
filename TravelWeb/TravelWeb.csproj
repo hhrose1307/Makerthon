@@ -201,6 +201,7 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\NhaNghisController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Global.asax.cs">
@@ -382,6 +383,7 @@
     <Content Include="Images\cty\cty.jpg" />
     <Content Include="Images\diadanh\1.jpg" />
     <Content Include="Images\diadanh\2.jpg" />
+    <Content Include="Images\logo\logo.png" />
     <Content Include="Images\users\noavatar.jpg" />
     <Content Include="Mail\SendMail.html" />
     <Content Include="Scripts\bootstrap.js" />
@@ -526,6 +528,7 @@
     <Content Include="Views\NhaNghis\Index.cshtml" />
     <Content Include="Views\NhaNghis\DaDang.cshtml" />
     <Content Include="Views\Home\Review.cshtml" />
+    <Content Include="Views\Map\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

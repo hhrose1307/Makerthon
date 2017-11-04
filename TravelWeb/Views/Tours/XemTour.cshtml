@@ -15,12 +15,14 @@
         display: none;
     }
 </style>
+
 <!-- === BEGIN CONTENT === -->
 <div id="content">
     <div class="container background-white">
         <div class="row margin-vert-30">
             <div class="col-md-12">
                 <h3>Xem danh sách Tour</h3>
+                @ViewBag.ThongBao
                 @foreach (var item in Model)
                 {
                     <div class="row">
@@ -50,9 +52,10 @@
                             </ul>
                         </div>
                         <div class="col-md-6 margin-bottom-10 animate fadeInRight">
+                            
                             <h3 class="padding-top-10 pull-left">
                                 Điểm xuất phát: @item.HuyenDi - @item.TinhDi<br />
-                                Địa điểm tới: @item.HuyenToi - @item.HuyenToi
+                                Địa điểm tới: @item.HuyenToi - @item.TinhToi
 
                             </h3>
                             <div class="clearfix"></div>
@@ -63,10 +66,13 @@
                                 <em>Thành viên đã có:@item.SoNguoiDaCo</em><br />
                                 <em>Phương tiện đi: @item.PhuongTien</em>
                             </h4>
-                            @*<p>
-                                    Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.
-                                </p>*@
+                            <form action="@Url.Action("ThamGia","Tours")" method="post">
+                                <input type="number" name="SoNguoi" placeholder="Nhập số người đi cùng bạn..." style="width:190px;"/>
+                                <input name="MaTour" value="@item.MaTour" hidden />
+                                <button type="submit">Tham gia</button>
+                            </form>
+
+                            
                         </div>
                     </div>
                     <hr>
