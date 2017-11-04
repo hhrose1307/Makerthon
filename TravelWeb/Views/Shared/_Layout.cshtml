@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="~/assets/css/responsive.css"/>
     <link rel="stylesheet" href="~/assets/css/custom.css"/>
     <!-- Google Fonts-->
-    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+    @*<link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=PT+Sans" type="text/css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">*@
 
     <script type='text/javascript'>window._sbzq || function (e) { e._sbzq = []; var t = e._sbzq; t.push(["_setAccount", 72077]); var n = e.location.protocol == "https:" ? "https:" : "http:"; var r = document.createElement("script"); r.type = "text/javascript"; r.async = true; r.src = n + "//static.subiz.com/public/js/loader.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) }(window);</script>
 </head>
@@ -203,7 +203,7 @@
                 <!-- Isotope - Portfolio Sorting -->
                 <script type="text/javascript" src="~/assets/js/jquery.isotope.js"></script>
                 <!-- Mobile Menu - Slicknav -->
-                <script type="text/javascript" src="~/assets/js/jquery.slicknav.js" "></script>
+                <script type="text/javascript" src="~/assets/js/jquery.slicknav.js" ></script>
                 <!-- Animate on Scroll-->
                 <script type="text/javascript" src="~/assets/js/jquery.visible.js" charset="utf-8"></script>
                 <!-- Sticky Div -->
@@ -215,13 +215,11 @@
                 <!-- End JS -->
 
                 <!--Tỉnh tới, huyện tới-->
-            <script src="~/assets/client/js/controller/userController.js"></script>
+                <script src="~/assets/client/js/controller/userController.js"></script>
 
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                <script src="~/Scripts/jquery.validate.min.js"></script>
+                    @RenderSection("scripts", required: false)
 
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-                @RenderSection("scripts", required: false)
-
-            </div>
+                </div>
 </body>
 </html>

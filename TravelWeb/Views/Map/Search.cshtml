@@ -81,9 +81,12 @@
         <br>
         <span id="place-address"></span>
     </div>
-    <ul id="list">
+    <div>
+        <ul id="list-layout">
 
-    </ul>
+        </ul>
+    </div>
+    
 </div>
     <script>
         function initMap() {
@@ -137,11 +140,16 @@
                             var service = new google.maps.places.PlacesService(map);
 
                             service.nearbySearch(request, callback);
+                            //var param = document.getElementById("list-layout");
+                            var ul = document.getElementById('list-layout');
                             function callback(results, status) {
                                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                                     for (var i = 0; i < results.length; i++) {
                                         createMarker(results[i]);
-
+                                        //param.setContent(result[i].formatted_address + "/n");
+                                        var li = document.createElement('li')
+                                        ul.appendChild(li);
+                                        li.innerHTML = li.innerHTML + results[i].formatted_address;
                                     }
                                 }
                             }
@@ -191,6 +199,6 @@
     </script>
     <hr>
 <!--Google map Place API-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASmQugLkCndcVe7Vg7D0_ziNN08piUNyM&libraries=places&callback=initMap" async defer> </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNUdav5528mHPTWY3sAhawZgPfm2iqk0&libraries=places&callback=initMap" async defer> </script>
     
 
