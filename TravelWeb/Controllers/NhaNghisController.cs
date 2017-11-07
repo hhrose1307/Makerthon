@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using TravelWeb.Models;
 
 namespace TravelWeb.Controllers
@@ -52,10 +53,25 @@ namespace TravelWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5,MaKH")] NhaNghi nhaNghi)
+        public ActionResult Create([Bind(Include = "TenNhaNghi,DiaChi,SDT,GiaPhong,Anh1,Anh2,Anh3,Anh4,Anh5")] NhaNghi nhaNghi)
         {
             if (ModelState.IsValid)
             {
+                var xmlDoc = XDocument.Load(Server.MapPath(@"~/assets/client/data/Provinces_Data.xml"));
+
+                var xElements = xmlDoc.Element("Root").Elements("Item").Where(x => x.Attribute("type").Value == "province");
+                int ma1 = int.Parse(nhaNghi.DiaChi);
+                foreach (var item in xElements)
+                {
+                    if (item.Attribute("id").Value == nhaNghi.DiaChi)
+                    {
+
+                        nhaNghi.DiaChi = item.Attribute("value").Value;
+                    }
+
+
+                }
+                nhaNghi.MaKH = User.Identity.GetUserId();
                 db.NhaNghis.Add(nhaNghi);
                 db.SaveChanges();
                 return RedirectToAction("Index");

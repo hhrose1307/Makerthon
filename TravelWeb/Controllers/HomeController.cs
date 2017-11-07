@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using TravelWeb.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TravelWeb.Controllers
 {
@@ -13,6 +14,21 @@ namespace TravelWeb.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
+            var user = User.Identity.GetUserId();
+            if(user!=null)
+            {
+                var ct = db.ChiTietTours.Where(n => n.MaKH == user).ToList();
+                if (ct == null)
+                {
+                    ViewBag.TinhTrang = 1;
+                }
+                else
+                {
+                    ViewBag.TinhTrang = 0;
+                }
+            }
+            
+
             var model = db.Tours.ToList();
             ViewBag.user = db.Users.ToList().Count();
             return View(model);

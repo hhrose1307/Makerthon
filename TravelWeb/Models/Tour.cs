@@ -27,10 +27,10 @@
         [Display(Name ="Số ngày đi")]
         public int? NgayDiDuKien { get; set; }
 
-        [Display(Name ="Tỉnh đi")]
+        [Display(Name ="Tỉnh xuất phát")]
         public string TinhDi { get; set; }
 
-        [Display(Name ="Huyện đi")]
+        [Display(Name ="Huyện xuát phát")]
         public string HuyenDi { get; set; }
 
         [Display(Name ="Tỉnh tới")]
@@ -42,7 +42,7 @@
         [StringLength(150)]
         public string DiaDiemToi { get; set; }
 
-        [Display(Name ="Số người")]
+        [Display(Name ="Tổng số người")]
         public int? SoNguoi { get; set; }
 
 
@@ -52,7 +52,7 @@
         [Display(Name ="Phương tiện")]
         public string PhuongTien { get; set; }
 
-        [Display(Name ="Giới tính")]
+        [Display(Name ="Bạn muốn đi cùng???")]
         public string GioiTinh { get; set; }
 
         public string Anh { get; set; }

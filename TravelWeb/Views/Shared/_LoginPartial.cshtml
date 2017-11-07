@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity;
 @using TravelWeb.Models;
+
 @{
     var db = new ApplicationDbContext();
     var user = db.Users.Find(User.Identity.GetUserId());

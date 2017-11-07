@@ -30,6 +30,10 @@ namespace TravelWeb.Controllers
             }
             var ct = db.ChiTietTours.FirstOrDefault(n => n.MaKH == user);
             var tour = db.Tours.Where(n => n.MaTour == ct.MaTour&&n.ThoiGianDi>=DateTime.Now).ToList();
+            if(tour==null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View(tour);
         }
 
@@ -435,6 +439,26 @@ namespace TravelWeb.Controllers
             db.ChiTietTours.Add(ct);
             db.SaveChanges();     
             return RedirectToAction("Index", "Tours");
+        }
+
+        [Authorize]
+        public ActionResult KhachSan()
+        {
+            var user = User.Identity.GetUserId();
+            ChiTietTour ct = db.ChiTietTours.FirstOrDefault(n => n.MaKH == user);
+            if(ct==null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            Tour tour = db.Tours.SingleOrDefault(n => n.MaTour == ct.MaTour);
+            if(tour==null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            var nhanghi = db.NhaNghis.Where(n => n.DiaChi == tour.TinhDi).ToList();
+            return View(nhanghi);
         }
     }
 }

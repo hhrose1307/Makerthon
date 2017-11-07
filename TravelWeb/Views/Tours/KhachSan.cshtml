@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<TravelWeb.Models.NhaNghi>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Khách sạn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
     #pre-header {
@@ -12,12 +13,9 @@
         display: none;
     }
 </style>
-<div class="container background-white">
-    <h2>Danh sách</h2>
+<h2>Danh sách bạn cần</h2>
 
-    <p>
-        @Html.ActionLink("Thêm mới", "Create")
-    </p>
+<div class="container background-white">
     <table class="table">
         <tr>
             <th>
@@ -34,6 +32,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Anh1)
+
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Anh2)
@@ -47,7 +46,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Anh5)
             </th>
-            <th></th>
         </tr>
 
         @foreach (var item in Model)
@@ -66,27 +64,21 @@
                     @Html.DisplayFor(modelItem => item.GiaPhong)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Anh1)
+                    <img src="@Url.Content("~/Images/khachsan/"+item.Anh1)" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Anh2)
+                    <img src="@Url.Content("~/Images/khachsan/"+item.Anh2)" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Anh3)
+                    <img src="@Url.Content("~/Images/khachsan/"+item.Anh3)" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Anh4)
+                    <img src="@Url.Content("~/Images/khachsan/"+item.Anh4)" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Anh5)
-                </td>
-                <td>
-                    @Html.ActionLink("Sửa", "Edit", new { id = item.Ma }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Ma }, new { @class = "btn btn-success" }) |
-                    @Html.ActionLink("Xóa", "Delete", new { id = item.Ma }, new { @class = "btn btn-danger" })
+                    <img src="@Url.Content("~/Images/khachsan/"+item.Anh5)" />
                 </td>
             </tr>
         }
-
     </table>
-    </div>
+</div>

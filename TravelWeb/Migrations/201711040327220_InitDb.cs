@@ -3,7 +3,7 @@ namespace TravelWeb.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class cc : DbMigration
+    public partial class InitDb : DbMigration
     {
         public override void Up()
         {

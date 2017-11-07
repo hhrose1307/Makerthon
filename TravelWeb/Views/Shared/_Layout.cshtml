@@ -24,8 +24,18 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">*@
 
     <script type='text/javascript'>window._sbzq || function (e) { e._sbzq = []; var t = e._sbzq; t.push(["_setAccount", 72077]); var n = e.location.protocol == "https:" ? "https:" : "http:"; var r = document.createElement("script"); r.type = "text/javascript"; r.async = true; r.src = n + "//static.subiz.com/public/js/loader.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) }(window);</script>
+    
 </head>
 <body>
+    <div id="popup1" class="popup" style="width:300px;height:200px;" hidden>
+        <div style="background:lavender;">Title<a href="#" class="close" />x</a></div>
+        <div align="center" style="margin-top:20px">
+            Bạn chưa có tour, hãy tham khảo một vài địa điểm của chúng tôi.<br />
+            <img src="Face_Yahoo.png" />
+            <a href="#">Click here?</a>
+        </div>
+        <!-- END POPUP CONTENT -->
+    </div>
     <div id="body-bg">
         <ul class="social-icons pull-right hidden-xs">
             <li class="social-rss">
@@ -80,7 +90,7 @@
                             </li>
 
                             <li>
-                                <span class="fa-font"><a href="@Url.Action("TroGiup","Home")">Tìm Phòng nghỉ</a></span>
+                                <span class="fa-font"><a href="@Url.Action("Search","Map")">Tìm khách sạn</a></span>
                             </li>
                             <li>
                                 <a href="@Url.Action("LienHe","Home")">Liên hệ</a>
